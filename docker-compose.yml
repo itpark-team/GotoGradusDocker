@@ -9,14 +9,14 @@ services:
     command: redis-server --save 20 1 --loglevel warning --requirepass redispw
     volumes: 
       - ./redisdata:/data
-  # nginx:
-  #   image: nginx
-  #   restart: unless-stopped
-  #   volumes:
-  #     - ./nginxapp:/etc/nginx/conf.d
-  #     - ./shared/images/:/home/web/www/images
-  #   ports:
-  #     - "80:80"
+  nginx:
+    image: nginx
+    restart: unless-stopped
+    volumes:
+      - ./nginxapp:/etc/nginx/conf.d
+      - ./shared/images/:/home/web/www/images
+    ports:
+      - "80:80"
   
   # postgres:
   #   image: postgres:13.3
